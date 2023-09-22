@@ -151,12 +151,12 @@ export default MyCart;
 
 #### :pray: Credits
 
-Huge thanks to [Peter Krumins
-](https://github.com/pkrumins) for the package name `cart`. Please checkout [Browserling](https://www.browserling.com/) - Online cross-browser testing platform.
+Huge thanks to [Peter Krumins](https://github.com/pkrumins) for the package name `cart`.
+Please checkout [Browserling](https://www.browserling.com/) - Online cross-browser testing platform.
 
-(Btw, This is not a sponsored message. Just my way of saying thank you)
+(Btw, This is not a sponsored message, Just my way of saying thank you)
 
-## Contributors
+#### Contributors
 
 <!-- spellchecker: disable -->
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -181,7 +181,8 @@ Huge thanks to [Peter Krumins
 
 #### :green_heart: Message
 
-I hope you find this useful. If you have any questions, please create an issue.
+I hope you find this useful.
+If you have any questions, please create an issue.
 
 ---
 
