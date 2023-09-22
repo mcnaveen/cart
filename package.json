@@ -2,6 +2,12 @@
 	"name": "cart",
 	"version": "1.1.0",
 	"description": "Headless cart management library",
+	"keywords": [
+		"cart",
+		"headless-cart",
+		"cart-management",
+		"react-cart"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/mcnaveen/cart"
