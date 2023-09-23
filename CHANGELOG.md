@@ -1,3 +1,5 @@
+## [1.1.1](https://github.com/mcnaveen/cart/compare/1.1.0...1.1.1) (2023-09-23)
+
 # 1.1.0 (2023-09-22)
 
 ### Features
