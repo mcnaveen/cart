@@ -1,0 +1,113 @@
+# Using with Nextjs
+
+### Intro
+Once you have done with the Installation, All you have to do is to Import `useCart` hook and `withSSR` in your Cart Component
+
+Then create a new file called `mycart.jsx` and use the below example code.
+
+> If you're using App Directory, make sure you have `"use client"` directive at the top.
+
+Feel free to remove the `types` if you're using JavaScript.
+
+### Example
+
+```tsx filename="mycart.tsx" copy
+'use client';
+
+import React from 'react';
+import { useCart, withSSR, type CartItems, type CartState } from 'cart';
+interface Product {
+  productId: string;
+  name: string;
+  price: number;
+}
+
+const products: Product[] = [
+  {
+    productId: '123',
+    name: 'Product 1',
+    price: 10,
+  },
+  {
+    productId: '456',
+    name: 'Product 2',
+    price: 15,
+  },
+  {
+    productId: '789',
+    name: 'Product 3',
+    price: 20,
+  },
+];
+
+export function MyCart() {
+  // For using with SSR, Wrap the useCart using withSSR like below 
+  const cart: CartState = withSSR(useCart, (state) => state);
+
+  const handleToggle = () => {
+    cart?.toggleCart?.();
+  };
+
+  const addItem = (product: CartItems) => {
+    cart?.addToCart?.(product);
+  };
+
+  const subtractItem = (productId: string) => {
+    cart?.decreaseItem?.(productId, 1);
+  };
+
+  return (
+    <div>
+      <p>
+        Cart Status: {cart?.isCartOpen ? 'Open' : 'Closed'}
+      </p>
+      <div>
+        {cart?.isCartOpen && (
+          <div>
+            <p>Cart Items:</p>
+            <pre>{JSON.stringify(cart?.cartItems, null, 2)}</pre>
+          </div>
+        )}
+        <button
+          onClick={() => handleToggle()}
+        >
+          Toggle Cart
+        </button>
+        <button
+          onClick={() => cart?.clearCart?.()}
+        >
+          Clear Cart
+        </button>
+        {products.map((product) => {
+          const cartItem = cart?.cartItems?.find(
+            (item) => item.productId === product.productId
+          );
+          const quantity = cartItem ? cartItem.quantity : 0;
+          const total = quantity * product.price;
+
+          return (
+            <div
+              key={product.productId}
+             
+            >
+              <div className="flex-grow">
+                {product.name} - ${product.price} (x{quantity}) - ${total}
+              </div>
+              <button
+                onClick={() => addItem(product)}
+              >
+                +
+              </button>
+              <button
+                onClick={() => subtractItem(product.productId)}
+              >
+                -
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+```

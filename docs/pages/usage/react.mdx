@@ -1,0 +1,88 @@
+# Using with Reactjs
+
+### Intro
+Once you have done with the Installation, All you have to do is to Import useCart hook in your Cart Component
+
+Then create a new file called mycart.jsx and use the below example code.
+
+### Example
+
+```jsx filename="mycart.jsx" copy
+import React from "react";
+import { useCart } from "cart";
+ 
+export default function Cart() {
+	const { addToCart, decreaseItem, clearCart, cartItems } = useCart();
+ 
+	const products = [
+		{
+			productId: "123",
+			name: "Product 1",
+			price: 10,
+		},
+		{
+			productId: "456",
+			name: "Product 2",
+			price: 15,
+		},
+		// Add more products as needed
+	];
+ 
+	const addItem = (product) => {
+		addToCart({ ...product, quantity: 1 });
+	};
+ 
+	const subtractItem = (productId) => {
+		decreaseItem(productId, 1);
+	};
+ 
+	const clear = () => {
+		clearCart();
+	};
+ 
+	return (
+		<div>
+			<p>Cart Item Count: {cartItems.length}</p>
+			<ul>
+				{products.map((product) => {
+					const cartItem = cartItems.find(
+						(item) => item.productId === product.productId,
+					);
+					const quantity = cartItem ? cartItem.quantity : 0;
+ 
+					return (
+						<>
+							<li key={product.productId}>
+								{product.name} - <span>${product.price}</span> (x{quantity}) - $
+								{quantity * product.price}
+								<button onClick={() => addItem(product)}>+</button>
+								<button onClick={() => subtractItem(product.productId)}>
+									-
+								</button>
+							</li>
+							<br />
+						</>
+					);
+				})}
+			</ul>
+			<p>
+				Total Price: $
+				{cartItems.reduce(
+					(total, item) => total + item.quantity * item.price,
+					0,
+				)}
+			</p>
+			{cartItems.length > 0 && <button onClick={clear}>Clear Cart</button>}
+		</div>
+	);
+}
+```
+
+Now, All you have to do is to import the Cart component you have just created.
+
+```jsx filename="index.jsx" copy
+import { Cart } from "./mycart";
+ 
+// and use it as component
+<Cart />;
+```
