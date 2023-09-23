@@ -6,19 +6,20 @@
 		"coverage",
 		"lib",
 		"node_modules",
-		"pnpm-lock.yaml"
+		"pnpm-lock.yaml",
+		"docs"
 	],
 	"words": [
-		"cart",
-		"headless-cart",
-		"cart-management",
-		"react-cart",
 		"Browserling",
+		"cart",
+		"cart-management",
 		"Codecov",
 		"codespace",
 		"commitlint",
 		"contributorsrc",
 		"conventionalcommits",
+		"floatingcart",
+		"headless-cart",
 		"imagesrc",
 		"itemadd",
 		"knip",
@@ -31,6 +32,7 @@
 		"outro",
 		"packagejson",
 		"quickstart",
+		"react-cart",
 		"tsup",
 		"wontfix",
 		"zustand"
