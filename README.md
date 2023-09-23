@@ -27,9 +27,14 @@
 
 > ⚠️ Expect some breaking changes, Use at your own risk
 
+### 🛒 Demo
+
+- [View React Demo](https://stackblitz-starters-dt9zzc.stackblitz.io/)
+- [Nextjs App Directory Demo](https://stackblitzstarterskcruvd-uufb--3000--d6c42aca.local-credentialless.webcontainer.io/)
+
 ### :package: Requirements
 
-- Node.js 16X LTS or Higher 📦
+- React or Nextjs Project ⚛️
 
 ### :sparkles: Installation
 
