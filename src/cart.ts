@@ -4,7 +4,7 @@ import { create } from "zustand";
 import { StateStorage, createJSONStorage, persist } from "zustand/middleware";
 
 // check if we are in the browser and set storage type accordingly
-const isBrowser = typeof window.document !== "undefined" ? true : false
+const isBrowser = typeof window.document !== 'undefined';
 const storageType = isBrowser ? localStorage : AsyncStorage;
 
 interface CartItems {
