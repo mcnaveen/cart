@@ -1,6 +1,11 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from "react";
 import { create } from "zustand";
 import { StateStorage, createJSONStorage, persist } from "zustand/middleware";
+
+// check if we are in the browser and set storage type accordingly
+const isBrowser = typeof window.document !== 'undefined';
+const storageType = isBrowser ? localStorage : AsyncStorage;
 
 interface CartItems {
 	cartQuantity?: number;
@@ -211,7 +216,7 @@ const useCart = create<CartState>()(
 		}),
 		{
 			name: "cart",
-			storage: createJSONStorage(() => localStorage),
+			storage: createJSONStorage(() => storageType as StateStorage),
 		},
 	),
 );
